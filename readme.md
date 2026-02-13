@@ -1,7 +1,7 @@
 # Dynamic Web Development
 
-- Academiejaar: 
-- Opleiding: 
-- Klasgroep: 
-- Naam: 
+- Academiejaar: 2025-2026
+- Opleiding: Toegepaste Informatica
+- Klasgroep: 9/10
+- Naam: Zakaria Errahmani
 
