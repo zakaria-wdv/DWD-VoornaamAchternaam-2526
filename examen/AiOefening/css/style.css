@@ -1,0 +1,438 @@
+/* Globale CSS-variabelen */
+
+:root {
+   --color-primary: #e63946;
+   --color-primary-dark: #c1121f;
+   --color-bg: #f8f9fa;
+   --color-surface: #fff;
+   --color-text: #212529;
+   --color-muted: #6c757d;
+   --color-border: #dee2e6;
+   --color-favorite: #f4a261;
+   --radius: 8px;
+   --shadow: 0 2px 8px rgb(0 0 0 / 10%);
+   --transition: 0.2s ease;
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: system-ui, sans-serif;
+   background-color: var(--color-bg);
+   color: var(--color-text);
+   line-height: 1.6;
+   min-height: 100vh;
+}
+
+/* Schermlezer-only klasse */
+
+.visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+   clip-path: inset(50%);
+   white-space: nowrap;
+}
+
+/* Altijd verbergen */
+
+.hidden {
+   display: none !important;
+}
+
+/* Header */
+
+.site-header {
+   background-color: var(--color-primary);
+   color: var(--color-surface);
+   padding: 1.5rem 2rem;
+   text-align: center;
+}
+
+.site-header h1 {
+   font-size: 2rem;
+   margin-bottom: 0.25rem;
+}
+
+.site-tagline {
+   font-size: 1rem;
+   opacity: 0.9;
+}
+
+/* Hoofdinhoud */
+
+.site-main {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem 1rem;
+}
+
+/* Zoeksectie */
+
+.search-section {
+   margin-bottom: 2rem;
+}
+
+#frmSearch {
+   display: flex;
+   gap: 0.5rem;
+   max-width: 600px;
+}
+
+#inpSearch {
+   flex: 1;
+   padding: 0.6rem 1rem;
+   font-size: 1rem;
+   border: 2px solid var(--color-border);
+   border-radius: var(--radius);
+   transition: border-color var(--transition);
+}
+
+#inpSearch:focus {
+   outline: none;
+   border-color: var(--color-primary);
+}
+
+#inpSearch::placeholder {
+   color: var(--color-muted);
+}
+
+/* Knoppen */
+
+.btn,
+#frmSearch button[type="submit"] {
+   padding: 0.6rem 1.2rem;
+   font-size: 1rem;
+   border: none;
+   border-radius: var(--radius);
+   cursor: pointer;
+   transition: background-color var(--transition);
+}
+
+#frmSearch button[type="submit"] {
+   background-color: var(--color-primary);
+   color: var(--color-surface);
+}
+
+#frmSearch button[type="submit"]:hover {
+   background-color: var(--color-primary-dark);
+}
+
+/* Feedbackbericht */
+
+.feedback {
+   margin-top: 0.75rem;
+   padding: 0.6rem 1rem;
+   border-radius: var(--radius);
+   background-color: #e9f5e9;
+   color: #2d6a2d;
+}
+
+.feedback.feedback-error {
+   background-color: #fde8e8;
+   color: #a71d1d;
+}
+
+/* Detailpaneel (modaal overlay) */
+
+.detail-section {
+   position: fixed;
+   inset: 0;
+   background-color: rgb(0 0 0 / 70%);
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   overflow-y: auto;
+   padding: 2rem 1rem;
+   z-index: 100;
+}
+
+.detail-container {
+   background-color: var(--color-surface);
+   border-radius: var(--radius);
+   max-width: 800px;
+   width: 100%;
+   padding: 1.5rem;
+   position: relative;
+}
+
+.btn-close {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   background-color: var(--color-border);
+   color: var(--color-text);
+   border: none;
+   border-radius: var(--radius);
+   padding: 0.4rem 0.8rem;
+   cursor: pointer;
+   font-size: 0.9rem;
+   transition: background-color var(--transition);
+}
+
+.btn-close:hover {
+   background-color: var(--color-muted);
+   color: var(--color-surface);
+}
+
+/* Detail inhoud */
+
+.detail-header {
+   display: flex;
+   gap: 1.5rem;
+   margin-bottom: 1.5rem;
+   margin-top: 2rem;
+   flex-wrap: wrap;
+}
+
+.detail-img {
+   width: 100%;
+   max-width: 320px;
+   border-radius: var(--radius);
+   object-fit: cover;
+}
+
+.detail-meta {
+   flex: 1;
+   min-width: 200px;
+}
+
+.detail-title {
+   font-size: 1.5rem;
+   margin-bottom: 0.5rem;
+}
+
+.detail-category,
+.detail-area {
+   color: var(--color-muted);
+   margin-bottom: 0.25rem;
+}
+
+.btn-favorite-detail {
+   margin-top: 1rem;
+   background-color: var(--color-border);
+   color: var(--color-text);
+   border: none;
+   border-radius: var(--radius);
+   padding: 0.5rem 1rem;
+   cursor: pointer;
+   font-size: 1rem;
+   transition: background-color var(--transition);
+}
+
+.btn-favorite-detail:hover {
+   background-color: var(--color-favorite);
+   color: var(--color-surface);
+}
+
+.btn-favorite-detail.is-favorite {
+   background-color: var(--color-favorite);
+   color: var(--color-surface);
+}
+
+.detail-ingredients,
+.detail-instructions {
+   margin-top: 1.5rem;
+}
+
+.detail-ingredients h3,
+.detail-instructions h3 {
+   font-size: 1.1rem;
+   margin-bottom: 0.75rem;
+   color: var(--color-primary);
+}
+
+.ingredient-list {
+   list-style: disc;
+   padding-left: 1.5rem;
+   columns: 2;
+   gap: 0.5rem;
+}
+
+.ingredient-list li {
+   margin-bottom: 0.25rem;
+}
+
+.instructions-text {
+   white-space: pre-line;
+   line-height: 1.8;
+}
+
+/* Resultatenraster */
+
+.results-section {
+   margin-bottom: 3rem;
+}
+
+.results-grid,
+.favorites-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+   gap: 1.5rem;
+}
+
+/* Receptkaart */
+
+.recipe-card {
+   background-color: var(--color-surface);
+   border-radius: var(--radius);
+   box-shadow: var(--shadow);
+   overflow: hidden;
+   transition: transform var(--transition), box-shadow var(--transition);
+   cursor: pointer;
+}
+
+.recipe-card:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 6px 16px rgb(0 0 0 / 15%);
+}
+
+.card-img {
+   width: 100%;
+   aspect-ratio: 4 / 3;
+   object-fit: cover;
+   display: block;
+}
+
+.card-body {
+   padding: 0.75rem;
+}
+
+.card-title {
+   font-size: 1rem;
+   margin-bottom: 0.25rem;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.card-meta {
+   font-size: 0.85rem;
+   color: var(--color-muted);
+   margin-bottom: 0.5rem;
+}
+
+.card-actions {
+   display: flex;
+   gap: 0.4rem;
+   align-items: center;
+}
+
+/* Knop: details bekijken */
+
+.btn-detail {
+   flex: 1;
+   background-color: var(--color-primary);
+   color: var(--color-surface);
+   border: none;
+   border-radius: var(--radius);
+   padding: 0.4rem 0.6rem;
+   cursor: pointer;
+   font-size: 0.85rem;
+   transition: background-color var(--transition);
+}
+
+.btn-detail:hover {
+   background-color: var(--color-primary-dark);
+}
+
+/* Knop: favoriet */
+
+.btn-favorite {
+   background-color: var(--color-border);
+   color: var(--color-text);
+   border: none;
+   border-radius: var(--radius);
+   width: 2rem;
+   height: 2rem;
+   cursor: pointer;
+   font-size: 1rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background-color var(--transition);
+   flex-shrink: 0;
+}
+
+.btn-favorite:hover {
+   background-color: var(--color-favorite);
+   color: var(--color-surface);
+}
+
+.btn-favorite.is-favorite {
+   background-color: var(--color-favorite);
+   color: var(--color-surface);
+}
+
+/* Knop: verwijder favoriet */
+
+.btn-remove {
+   background-color: var(--color-border);
+   color: var(--color-text);
+   border: none;
+   border-radius: var(--radius);
+   width: 2rem;
+   height: 2rem;
+   cursor: pointer;
+   font-size: 1rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background-color var(--transition);
+   flex-shrink: 0;
+}
+
+.btn-remove:hover {
+   background-color: var(--color-primary);
+   color: var(--color-surface);
+}
+
+/* Favorieten sectie */
+
+.favorites-section h2 {
+   font-size: 1.4rem;
+   margin-bottom: 1rem;
+   color: var(--color-text);
+}
+
+.empty-message {
+   color: var(--color-muted);
+   font-style: italic;
+}
+
+/* Responsief: kleine schermen */
+@media (width <= 480px) {
+
+   .site-header {
+      padding: 1rem;
+   }
+
+   .site-header h1 {
+      font-size: 1.5rem;
+   }
+
+   #frmSearch {
+      flex-direction: column;
+   }
+
+   .detail-header {
+      flex-direction: column;
+   }
+
+   .detail-img {
+      max-width: 100%;
+   }
+
+   .ingredient-list {
+      columns: 1;
+   }
+}

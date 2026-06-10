@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>RecipeFinder</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header class="site-header">
+      <h1>RecipeFinder</h1>
+      <p class="site-tagline">Ontdek recepten uit de hele wereld</p>
+   </header>
+
+   <main class="site-main">
+      <section class="search-section">
+         <form id="frmSearch" novalidate>
+            <label for="inpSearch" class="visually-hidden">Zoek een recept</label>
+            <input
+               type="search"
+               id="inpSearch"
+               placeholder="bijv. chicken, pasta, sushi..."
+               autocomplete="off"
+            >
+            <button type="submit">Zoeken</button>
+         </form>
+         <p id="pFeedback" class="feedback hidden" role="alert"></p>
+      </section>
+
+      <section id="secDetail" class="detail-section hidden">
+         <div class="detail-container">
+            <button id="btnCloseDetail" type="button" class="btn-close">Sluiten</button>
+            <div id="divDetail" class="detail-content"></div>
+         </div>
+      </section>
+
+      <section class="results-section">
+         <div id="divResults" class="results-grid"></div>
+      </section>
+
+      <section class="favorites-section">
+         <h2>Mijn Favorieten</h2>
+         <div id="divFavorites" class="favorites-grid"></div>
+      </section>
+   </main>
+
+   <script src="js/config.js"></script>
+   <script src="js/api.js"></script>
+   <script src="js/dashboard.js"></script>
+   <script src="js/app.js"></script>
+</body>
+</html>

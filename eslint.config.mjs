@@ -6,7 +6,7 @@ export default [
 	{
 		// Projectbestanden zijn gewone browser-scripts (geen ES-modules),
 		// zodat /* global */ en /* exported */ commentaren correct werken.
-		files: ['project/js/*.js'],
+		files: ['project/js/*.js', 'examen/project/js/*.js'],
 		languageOptions: {
 			sourceType: 'script'
 		}
